@@ -1,0 +1,23 @@
+GET http://localhost:3000/api/v0/cars/
+###
+
+GET http://localhost:3000/api/v0/cars/69a8ec0d6c24683ab3ce1d7a
+###
+
+GET http://localhost:3000/api/v0/cars/69a8ec1b5db210daf9389c78
+###
+
+GET http://localhost:3000/api/v0/cars/0.9566508775423954
+###
+
+DELETE http://localhost:3000/api/v0/cars/69a8ec0d6c24683ab3ce1d7a
+###
+
+POST http://localhost:3000/api/v0/cars/
+content-type: application/json
+
+{
+  "brand": "Mercedes",
+  "price": 44444
+}
+###

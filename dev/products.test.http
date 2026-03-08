@@ -1,0 +1,36 @@
+GET http://localhost/pc-shop/api/v0/products/
+###
+
+GET http://localhost/pc-shop/api/v0/products/103
+###
+
+POST http://localhost/pc-shop/api/v0/products/
+content-type: application/json
+
+{
+  "price": 123,
+  "caption": "Тестовый ПК Solaris-SSSSSS",
+  "description": "Для тестов",
+  "category": "Computers"
+  # "photos": ["111111111.jpg", "222222222.jpg", "333333333.jpg"],
+  # "attributes": [
+  #   { "key": "Объём ОЗУ", "value": "17 Gb" },
+  #   { "key": "Тип ОЗУ", "value": "DDR5" },
+  #   { "key": "Процессор", "value": "Athlon 2001K" }
+  # ]
+}
+###
+
+PATCH http://localhost/pc-shop/api/v0/products/99
+content-type: application/json
+
+{
+  "bad": "bad",
+  "caption": "aaaaaa",
+  "description": "sssss",
+  "price": 444444
+}
+###
+
+DELETE http://localhost/pc-shop/api/v0/products/92
+###
