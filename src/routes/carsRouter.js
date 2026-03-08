@@ -4,6 +4,7 @@ import {
   handleDeleteById,
   handleGetAll,
   handleGetById,
+  handleUpdateById,
 } from '../controllers/carsController.js'
 
 const carsRouter = express.Router()
@@ -21,15 +22,9 @@ carsRouter.delete('/:id', handleDeleteById)
 carsRouter.post('/', handleAdd)
 
 // PUT (частичное обновление)
-carsRouter.put('/:id', (req, res) => {
-  const { id } = req.params
-  res.json({ message: `PUT (replace) item ${id}` })
-})
+carsRouter.put('/:id', handleUpdateById)
 
 // PATCH (полное обновление)
-carsRouter.patch('/:id', (req, res) => {
-  const { id } = req.params
-  res.json({ message: `PATCH (update) item ${id}` })
-})
+carsRouter.patch('/:id', handleUpdateById)
 
 export default carsRouter

@@ -9,9 +9,9 @@ export default [
     brand: 'Ferrari',
     price: 77003,
   },
-  // {
-  //   id: '69a8ec1b5db210daf9389c78',
-  //   brand: 'Audi',
-  //   price: 33003,
-  // },
+  {
+    id: '69a8ec1b5db210daf9389c78',
+    brand: 'Audi',
+    price: 33003,
+  },
 ]

@@ -21,3 +21,21 @@ content-type: application/json
   "price": 44444
 }
 ###
+
+PATCH http://localhost:3000/api/v0/cars/69a8ec0d6c24683ab3ce1d7a
+content-type: application/json
+
+{
+  "brand": "Mercedes",
+  "price": 44444
+}
+###
+
+PUT http://localhost:3000/api/v0/cars/69a8ec0d6c24683ab3ce1d7a
+content-type: application/json
+
+{
+  "brand": "Mercedes",
+  "price": 44444
+}
+###

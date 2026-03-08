@@ -34,3 +34,11 @@ function create(dto) {
   // console.log('dto', dto)
   return { id: Math.random().toString(), ...dto }
 }
+
+export function updateById(id, dto) {
+  const car = carsCollection.find(car => car.id === id)
+  if (!car) return null
+  Object.assign(car, dto)
+  const json = { car }
+  return convertor(json, 'carSchema')
+}
