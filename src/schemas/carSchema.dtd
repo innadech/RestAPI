@@ -1,0 +1,4 @@
+<!ELEMENT car (id,brand,price)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT brand (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
