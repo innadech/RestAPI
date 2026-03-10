@@ -1,0 +1,7 @@
+<!ELEMENT products (product+)>
+<!ELEMENT product (productCode,productName,productQuantity,productPrice)>
+<!ATTLIST product id NMTOKEN #REQUIRED>
+<!ELEMENT productCode (#PCDATA)>
+<!ELEMENT productName (#PCDATA)>
+<!ELEMENT productQuantity (#PCDATA)>
+<!ELEMENT productPrice (#PCDATA)>

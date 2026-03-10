@@ -1,0 +1,12 @@
+<!ELEMENT orders (order+)>
+<!ELEMENT order (orderNumber,orderDate,customerNumber,productCode,productName,productQuantity,productPrice,totalAmount,modeOfPayment)>
+<!ATTLIST order id NMTOKEN #REQUIRED>
+<!ELEMENT orderNumber (#PCDATA)>
+<!ELEMENT orderDate (#PCDATA)>
+<!ELEMENT customerNumber (#PCDATA)>
+<!ELEMENT productCode (#PCDATA)>
+<!ELEMENT productName (#PCDATA)>
+<!ELEMENT productQuantity (#PCDATA)>
+<!ELEMENT productPrice (#PCDATA)>
+<!ELEMENT totalAmount (#PCDATA)>
+<!ELEMENT modeOfPayment (#PCDATA)>
