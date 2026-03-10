@@ -1,50 +1,44 @@
 import convertor from '../utils/convertor.js'
-import productsCollection from '../collections/productsCollection.js'
+import {
+  addProduct,
+  deleteProductById,
+  getProductById,
+  getProductsAll,
+  updateProductById,
+} from '../dbs/productsDb.js'
 
-export function getAll() {
-  const products = productsCollection.map(({ id, ...product }) => ({
+export async function getAll() {
+  const data = await getProductsAll()
+  const products = data.map(({ id, ...product }) => ({
     product: { $: { id }, ...product },
   }))
   const json = { products }
   return convertor(json, 'productsSchema')
 }
 
-export function getById(productId) {
-  const { id, ...product } =
-    productsCollection.find(product => product.id === productId) ?? {}
+export async function getById(productId) {
+  const data = await getProductById(productId)
+  const { id, ...product } = data ?? {}
   if (!id) return null
   const json = { product: { $: { id }, ...product } }
   return convertor(json, 'productSchema')
 }
 
-export function deleteById(id) {
-  const productIdx = productsCollection.findIndex(product => product.id === id)
-  if (productIdx > -1) {
-    productsCollection.splice(productIdx, 1)
-    return true
-  }
-  return false
+export async function deleteById(id) {
+  return await deleteProductById(id)
 }
 
-export function add(dto) {
-  const createdProduct = create(dto)
-  productsCollection.push(createdProduct)
-  const { id, ...product } = createdProduct
+export async function add(dto) {
+  const data = await addProduct(dto)
+  const { id, ...product } = data
   const json = { product: { $: { id }, ...product } }
   return convertor(json, 'productSchema')
 }
 
-function create(dto) {
-  return { id: Math.random().toString(), ...dto }
-}
-
-export function updateById(productId, dto) {
-  const findedProduct = productsCollection.find(
-    product => product.id === productId
-  )
-  if (!findedProduct) return null
-  Object.assign(findedProduct, dto)
-  const { id, ...product } = findedProduct
+export async function updateById(productId, dto) {
+  const data = await updateProductById(productId, dto)
+  if (!data) return null
+  const { id, ...product } = data
   const json = { product: { $: { id }, ...product } }
   return convertor(json, 'productSchema')
 }

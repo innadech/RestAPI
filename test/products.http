@@ -1,10 +1,10 @@
 GET http://localhost:3000/api/v0/products/
 ###
 
-GET http://localhost:3000/api/v0/products/P003
+GET http://localhost:3000/api/v0/products/69b005f3bafc3d66a86e4ef9
 ###
 
-DELETE http://localhost:3000/api/v0/products/P003
+DELETE http://localhost:3000/api/v0/products/69b017c29928ae05e97d5a62
 ###
 
 POST http://localhost:3000/api/v0/products/
@@ -18,7 +18,7 @@ content-type: application/json
 }
 ###
 
-PATCH http://localhost:3000/api/v0/products/P003
+PATCH http://localhost:3000/api/v0/products/69b017d39928ae05e97d5a63
 content-type: application/json
 
 {
@@ -29,11 +29,13 @@ content-type: application/json
 }
 ###
 
-PUT http://localhost:3000/api/v0/products/69a8ec0d6c24683ab3ce1d7a
+PUT http://localhost:3000/api/v0/products/69b017d39928ae05e97d5a63
 content-type: application/json
 
 {
-  "brand": "Mercedes",
-  "price": 44444
+  "productCode": "888",
+  "productName": "Chips",
+  "productQuantity": 81,
+  "productPrice": 41
 }
 ###

@@ -1,35 +1,29 @@
 GET http://localhost:3000/api/v0/orders/
 ###
 
-GET http://localhost:3000/api/v0/orders/O1001
+GET http://localhost:3000/api/v0/orders/69b00473bafc3d66a86e4ef2
 ###
 
-GET http://localhost:3000/api/v0/orders/69a8ec1b5db210daf9389c78
-###
-
-DELETE http://localhost:3000/api/v0/orders/O1001
-###
-
-DELETE http://localhost:3000/api/v0/orders/69a8ec0d6c24683ab3ce1d7a
+DELETE http://localhost:3000/api/v0/orders/69b0186dde33ee62a2a4a80e
 ###
 
 POST http://localhost:3000/api/v0/orders/
 content-type: application/json
 
 {
-  "orderNumber": 1004,
-  "orderDate": "23/05/2022",
+  "orderNumber": 1010,
+  "orderDate": "24/05/2022",
   "customerNumber": 8890102345,
-  "productCode": "009",
-  "productName": "Shampoo",
-  "productQuantity": 15,
-  "productPrice": 20,
-  "totalAmount": 300,
-  "modeOfPayment": "Online"
+  "productCode": "111",
+  "productName": "Cream",
+  "productQuantity": 11,
+  "productPrice": 22,
+  "totalAmount": 333,
+  "modeOfPayment": "Offline"
 }
 ###
 
-PATCH http://localhost:3000/api/v0/orders/69a8ec0d6c24683ab3ce1d7a
+PATCH http://localhost:3000/api/v0/orders/69b0170f55b6cbeb8f3bb6c0
 content-type: application/json
 
 {
@@ -45,11 +39,11 @@ content-type: application/json
 }
 ###
 
-PUT http://localhost:3000/api/v0/orders/O1003
+PUT http://localhost:3000/api/v0/orders/69b0170f55b6cbeb8f3bb6c0
 content-type: application/json
 
 {
-  "orderNumber": 1004,
+  "orderNumber": 1005,
   "orderDate": "23/05/2022",
   "customerNumber": 8890102345,
   "productCode": "009",

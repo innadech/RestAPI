@@ -8,8 +8,9 @@ import productsRouter from './routes/productsRouter.js'
 const app = express()
 const PORT = 3000
 const schemasPath = path.join(import.meta.dirname, 'schemas')
+const corsOptions = { credentials: true }
 
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

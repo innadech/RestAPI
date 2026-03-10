@@ -6,15 +6,15 @@ import {
   updateById,
 } from '../models/order.js'
 
-export function handleGetAll(req, res) {
-  const orders = getAll()
+export async function handleGetAll(req, res) {
+  const orders = await getAll()
   res.setHeader('Content-Type', 'application/xml')
   res.status(200).send(orders)
 }
 
-export function handleGetById(req, res) {
+export async function handleGetById(req, res) {
   const { id } = req.params
-  const order = getById(id)
+  const order = await getById(id)
   if (!order) {
     res.status(404).send()
   } else {
@@ -23,9 +23,9 @@ export function handleGetById(req, res) {
   }
 }
 
-export function handleDeleteById(req, res) {
+export async function handleDeleteById(req, res) {
   const { id } = req.params
-  const isSucessfullyDeleted = deleteById(id)
+  const isSucessfullyDeleted = await deleteById(id)
   if (!isSucessfullyDeleted) {
     res.status(404).send()
   } else {
@@ -33,9 +33,9 @@ export function handleDeleteById(req, res) {
   }
 }
 
-export function handleAdd(req, res) {
+export async function handleAdd(req, res) {
   const { body } = req
-  const order = add(body)
+  const order = await add(body)
   if (!order) {
     res.status(400).send()
   } else {
@@ -44,10 +44,10 @@ export function handleAdd(req, res) {
   }
 }
 
-export function handleUpdateById(req, res) {
+export async function handleUpdateById(req, res) {
   const { id } = req.params
   const { body } = req
-  const order = updateById(id, body)
+  const order = await updateById(id, body)
   if (!order) {
     res.status(404).send()
   } else {

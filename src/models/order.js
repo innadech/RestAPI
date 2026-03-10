@@ -1,48 +1,44 @@
 import convertor from '../utils/convertor.js'
-import ordersCollection from '../collections/ordersCollection.js'
+import {
+  addOrder,
+  deleteOrderById,
+  getOrderById,
+  getOrdersAll,
+  updateOrderById,
+} from '../dbs/ordersDb.js'
 
-export function getAll() {
-  const orders = ordersCollection.map(({ id, ...order }) => ({
+export async function getAll() {
+  const data = await getOrdersAll()
+  const orders = data.map(({ id, ...order }) => ({
     order: { $: { id }, ...order },
   }))
   const json = { orders }
   return convertor(json, 'ordersSchema')
 }
 
-export function getById(orderId) {
-  const { id, ...order } =
-    ordersCollection.find(order => order.id === orderId) ?? {}
+export async function getById(orderId) {
+  const data = await getOrderById(orderId)
+  const { id, ...order } = data ?? {}
   if (!id) return null
   const json = { order: { $: { id }, ...order } }
   return convertor(json, 'orderSchema')
 }
 
-export function deleteById(id) {
-  const orderIdx = ordersCollection.findIndex(order => order.id === id)
-  if (orderIdx > -1) {
-    ordersCollection.splice(orderIdx, 1)
-    return true
-  }
-  return false
+export async function deleteById(id) {
+  return await deleteOrderById(id)
 }
 
-export function add(dto) {
-  const createdOrder = create(dto)
-  ordersCollection.push(createdOrder)
-  const { id, ...order } = createdOrder
+export async function add(dto) {
+  const data = await addOrder(dto)
+  const { id, ...order } = data
   const json = { order: { $: { id }, ...order } }
   return convertor(json, 'orderSchema')
 }
 
-function create(dto) {
-  return { id: Math.random().toString(), ...dto }
-}
-
-export function updateById(orderId, dto) {
-  const findedOrder = ordersCollection.find(order => order.id === orderId)
-  if (!findedOrder) return null
-  Object.assign(findedOrder, dto)
-  const { id, ...order } = findedOrder
+export async function updateById(orderId, dto) {
+  const data = await updateOrderById(orderId, dto)
+  if (!data) return null
+  const { id, ...order } = data
   const json = { order: { $: { id }, ...order } }
   return convertor(json, 'orderSchema')
 }
