@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE product SYSTEM "../schemas/productSchema.dtd">
+<product id="P003">
+  <productCode>009</productCode>
+  <productName>Shampoo</productName>
+  <productQuantity>100</productQuantity>
+  <productPrice>20</productPrice>
+</product>

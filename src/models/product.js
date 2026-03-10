@@ -35,7 +35,6 @@ export function add(dto) {
 }
 
 function create(dto) {
-  // console.log('dto', dto)
   return { id: Math.random().toString(), ...dto }
 }
 
