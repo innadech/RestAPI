@@ -1,0 +1,39 @@
+GET http://localhost:3000/api/v0/products/
+###
+
+GET http://localhost:3000/api/v0/products/P003
+###
+
+DELETE http://localhost:3000/api/v0/products/P003
+###
+
+POST http://localhost:3000/api/v0/products/
+content-type: application/json
+
+{
+  "productCode": "008",
+  "productName": "Cornflakes",
+  "productQuantity": 40,
+  "productPrice": 60
+}
+###
+
+PATCH http://localhost:3000/api/v0/products/P003
+content-type: application/json
+
+{
+  "productCode": "888",
+  "productName": "Chips",
+  "productQuantity": 80,
+  "productPrice": 40
+}
+###
+
+PUT http://localhost:3000/api/v0/products/69a8ec0d6c24683ab3ce1d7a
+content-type: application/json
+
+{
+  "brand": "Mercedes",
+  "price": 44444
+}
+###
