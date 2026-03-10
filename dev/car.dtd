@@ -1,5 +1,0 @@
-<!ELEMENT cars (car)>
-<!ELEMENT car (brand,price)>
-<!ATTLIST car status NMTOKEN #REQUIRED>
-<!ELEMENT brand (#PCDATA)>
-<!ELEMENT price (#PCDATA)>

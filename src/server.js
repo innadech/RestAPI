@@ -1,7 +1,6 @@
 import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import carsRouter from './routes/carsRouter.js'
 import ordersRouter from './routes/ordersRouter.js'
 import productsRouter from './routes/productsRouter.js'
 
@@ -16,7 +15,6 @@ app.use(express.urlencoded({ extended: true })) // Body-parser для форм
 
 // --- Роуты ---
 
-app.use('/api/v0/cars', carsRouter)
 app.use('/api/v0/orders', ordersRouter)
 app.use('/api/v0/products', productsRouter)
 
